@@ -7,7 +7,7 @@ const CreateAccount = ({ handleBlur, handleCreate, setHasAccount }) => {
     };
 
     return (
-        <div className="">
+        <div className="form-container">
             <form onSubmit={handleCreate}>
                  <div className="mb-3">
                     <label  className="form-label">Name</label>

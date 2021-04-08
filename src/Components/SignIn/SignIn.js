@@ -1,4 +1,5 @@
 import React from 'react';
+import './SignIn.css';
 
 const SignIn = ({ handleBlur, handleSignIn ,setHasAccount}) => {
     
@@ -7,7 +8,7 @@ const SignIn = ({ handleBlur, handleSignIn ,setHasAccount}) => {
     };
     
     return (
-        <div className="">
+        <div className="form-container">
             <form onSubmit={handleSignIn}>
                  <div className="mb-3">
                     <label  className="form-label">Email address</label>
