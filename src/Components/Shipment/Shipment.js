@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import './Shipment.css';
 import { UserContext } from '../../App';
 import { getDatabaseCart, processOrder } from '../../utilities/databaseManager';
+import ProcessPayment from '../ProcessPayment/ProcessPayment';
 
 const Shipment = () => {
 	const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -51,7 +52,9 @@ const Shipment = () => {
 			<input type="submit" />
 		</form>
             </div>
-            <div className="col-md-6"></div>
+            <div className="col-md-6">
+                <ProcessPayment></ProcessPayment>
+            </div>
         </div>
 	);
 };
