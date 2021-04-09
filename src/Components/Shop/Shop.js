@@ -49,7 +49,7 @@ const Shop = () => {
 		let count = 1;
 		let newCart;
 		if (existingProduct) {
-			let quantity = existingProduct.quantity || 0;
+			let quantity = existingProduct.quantity || 1;
 			console.log('quantity=',quantity);
 			count = quantity + 1;
 			existingProduct.quantity = count;

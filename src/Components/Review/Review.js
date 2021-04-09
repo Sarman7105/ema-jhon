@@ -36,7 +36,6 @@ const Review = () => {
 	const history =useHistory()
 
 	const proceedCheckout = () => {
-		processOrder();
 		setCartProducts([]);
 		history.push("/shipment");
 	}
