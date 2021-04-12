@@ -9,11 +9,12 @@ import { useHistory } from 'react-router';
 const Review = () => {
 	const [cartProducts, setCartProducts] = useState([]);
 	const [placedOrder, setPlacedOrder] = useState(false);
+	 let savedProducts = getDatabaseCart();
 	
 	useEffect(() => {
 		const savedProducts = getDatabaseCart();
 		const productKeys = Object.keys(savedProducts);
-		const url = `http://localhost:5055/productsByKeys`;
+		const url = `https://tranquil-river-37561.herokuapp.com/productsByKeys`;
 		fetch(url, {
 			method: 'POST',
 			headers: {
@@ -47,9 +48,9 @@ const Review = () => {
 		<div className="shop-container">
 			<div className="product-container">
 				{cartProducts.map((product) => (
-					<ReviewItem removeProduct={removeProduct} key={product.key} product={product} />
+					<ReviewItem removeProduct={removeProduct} quantity={savedProducts[product.key]} key={product.key} product={product} />
 				))}
-				{ thankYou}
+				{ thankYou }
 			</div>
 			<div className="cart-container">
 				<Cart cart={cartProducts}>

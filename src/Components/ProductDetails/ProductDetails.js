@@ -6,7 +6,7 @@ const ProductDetails = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5055/product/${productId}`;
+        const url = `https://tranquil-river-37561.herokuapp.com/product/${productId}`;
         // console.log(url);
         fetch(url)
             .then(res => res.json())

@@ -8,7 +8,7 @@ import ProcessPayment from '../ProcessPayment/ProcessPayment';
 const Shipment = () => {
 	const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data) => {
-        const url="http://localhost:5055/addOrder"
+        const url="https://tranquil-river-37561.herokuapp.com/addOrder"
         const savedCart=getDatabaseCart();
         const orderDetails={...loggedInUser,products:savedCart,shipment:data}
         // console.log(data);

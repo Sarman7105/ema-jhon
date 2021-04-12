@@ -4,6 +4,7 @@ import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 import { Link } from 'react-router-dom';
+import spinner from '../../Image/spinner.gif';
 
 const Shop = () => {
 	const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ const Shop = () => {
 	//use state for cart Elements
 	const [cart, setCart] = useState([]);
 	useEffect(() => {
-		fetch("http://localhost:5055/products")
+		fetch("https://tranquil-river-37561.herokuapp.com/products")
 			.then(res => res.json())
 			.then(data => setProducts(data));
 	},[])
@@ -30,7 +31,7 @@ const Shop = () => {
 		// setCart(previousProducts);
 		// }
 
-		const url = `http://localhost:5055/productsByKeys`;
+		const url = `https://tranquil-river-37561.herokuapp.com/productsByKeys`;
 		fetch(url, {
 			method: 'POST',
 			headers: {
@@ -67,7 +68,10 @@ const Shop = () => {
 	};
 	return (
 		<div className="shop-container">
-            <div className="product-container">
+			{
+				(!products.length) ? <img style={{ display: 'block', margin: 'auto' }} src={spinner} alt="" /> :
+					<>
+						<div className="product-container">
 				{products.map((pd) => <Product
 					key={pd.key}
 					product={pd}
@@ -82,6 +86,9 @@ const Shop = () => {
 					</Link>
 				</Cart>
 			</div>
+					</>
+			}
+			
 		</div>
 		
 	);
