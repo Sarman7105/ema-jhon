@@ -118,6 +118,7 @@ const Login = () => {
 			.then((userCredential) => {
 				const user = userCredential.user;
 				updateUserInfo(user);
+				sessionStorage.setItem('token', user.email);
 				alert('you have successfully loggedIn');
 				history.replace(from);
 			})
