@@ -44,10 +44,7 @@ const Shipment = () => {
         }
 
     const onSubmit = (data) => {
-        
-        const savedCart = getDatabaseCart();
         setShippingData(data);
-        
     }
 
 	// console.log(watch('example')); // watch input value by passing the name of it
